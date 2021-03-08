@@ -1,0 +1,237 @@
+<div class="row ">
+    <mat-toolbar color="primary" class="dialogHeading ">Additional Field Setup
+        <mat-icon mat-dialog-close class="dialogHeading  text-white pt-3" style="text-align: end;font-size: 27px;" >highlight_off</mat-icon>
+    </mat-toolbar>
+</div>
+<mat-card>
+    
+    <div class="content" style="width: 800px;">
+        <label>Select Firm</label>
+        <div class="row" fxLayoutGap="10px">
+            <div fxFlex="30" >
+                <mat-form-field appearance="outline" class="width">
+                <mat-label>Select Company</mat-label>
+                    <mat-select>
+                        <mat-option>Abc</mat-option>
+                    </mat-select>
+                </mat-form-field>  
+            </div>
+            <div fxFlex="61">
+                <mat-form-field appearance="outline" class="width">
+                    <mat-label>Select Theme</mat-label>
+                    <mat-select>
+                        <mat-option>Theme1</mat-option>
+                    </mat-select>
+                </mat-form-field>           
+            </div>
+        
+        </div> 
+        <div class="row" >
+            <div fxFlex="30">
+                <mat-accordion>
+                    <mat-expansion-panel   style="margin-top: 15px;">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Firm Additional Fields</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <!-- fnFirmAF1(FirmAdditionalField1) -->
+                        <div class="row"><mat-checkbox color="primary" (click)="fnFirmAF1(FirmAdditionalField1)">Additional Field1</mat-checkbox></div>
+                            <ng-template #FirmAdditionalField1 class="AddFieldDialog">
+                                <mat-toolbar color="primary" class="dialogHeading" fxLayoutAlign="center center">Additional Field1</mat-toolbar>
+                                <div class="row pl-2">
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Field Name</mat-label>
+                                        <input matInput placeholder="Field Name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="row pl-2">
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Field Value</mat-label>
+                                        <input matInput placeholder="Field Value">
+                                    </mat-form-field>
+                                </div>
+                                <section class="example-section ">
+                                    <mat-slide-toggle>
+                                    Show in print!
+                                    </mat-slide-toggle>
+                                </section>
+                            </ng-template> 
+                        <!-- fnFirmAF2(FirmAdditionalField2) -->
+                        <div class="row"><mat-checkbox color="primary" (click)="fnFirmAF2(FirmAdditionalField2)">Additional Field2</mat-checkbox></div>
+                            <ng-template #FirmAdditionalField2 class="AddFieldDialog">
+                                <mat-toolbar color="primary" class="dialogHeading" fxLayoutAlign="center center">Additional Field2</mat-toolbar>
+                                <div class="row pl-2">
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Field Name</mat-label>
+                                        <input matInput placeholder="Field Name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="row pl-2">
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Field Value</mat-label>
+                                        <input matInput placeholder="Field Value">
+                                    </mat-form-field>
+                                </div>
+                                <section class="example-section">
+                                    <mat-slide-toggle>
+                                        Show in print!
+                                        </mat-slide-toggle>
+                                </section>
+                            </ng-template> 
+                    </mat-expansion-panel>
+                    <mat-expansion-panel  style="margin-top: 15px;">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Transaction Additional Fields</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <!-- fnTransAF1(TransAdditionField1) -->
+                        <div class="row"><mat-checkbox color="primary" (click)="fnTransAF1(TransAdditionField1)">Additional Field1</mat-checkbox></div>
+                            <ng-template #TransAdditionField1 class="AddFieldDialog">
+                                <mat-toolbar color="primary" class="dialogHeading" fxLayoutAlign="center center">Additional Field1</mat-toolbar>
+                                <div class="row pl-2">
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Field Name</mat-label>
+                                        <input matInput placeholder="Field Name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="row pl-2">
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Field Value</mat-label>
+                                        <input matInput placeholder="Field Value">
+                                    </mat-form-field>
+                                </div>
+                                <section class="example-section">
+                                    <mat-slide-toggle>
+                                    Show in print!
+                                    </mat-slide-toggle>
+                                </section>
+                            </ng-template>
+                        <!-- fnTransAF2(TransAdditionField2) -->
+                        <div class="row"><mat-checkbox color="primary" (click)="fnTransAF2(TransAdditionField2)">Additional Field2</mat-checkbox></div>
+                            <ng-template #TransAdditionField2 class="AddFieldDialog">
+                                <mat-toolbar color="primary" class="dialogHeading" fxLayoutAlign="center center">Additional Field2</mat-toolbar>
+                                <div class="row pl-2">
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Field Name</mat-label>
+                                        <input matInput placeholder="Field Name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="row pl-2">
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Field Value</mat-label>
+                                        <input matInput placeholder="Field Value">
+                                    </mat-form-field>
+                                </div>
+                                <section class="example-section">
+                                    <mat-slide-toggle>
+                                    Show in print!
+                                    </mat-slide-toggle>
+                                </section>
+                            </ng-template>
+                        <!-- fnTransAF3(TransAdditionField3) -->
+                        <div class="row"><mat-checkbox color="primary" (click)="fnTransAF3(TransAdditionField3)">Additional Field3</mat-checkbox></div>
+                            <ng-template #TransAdditionField3 class="AddFieldDialog">
+                                <mat-toolbar color="primary" class="dialogHeading" fxLayoutAlign="center center">Additional Field3</mat-toolbar>
+                                <div class="row pl-2">
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Field Name</mat-label>
+                                        <input matInput placeholder="Field Name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="row pl-2">
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Field Value</mat-label>
+                                        <input matInput placeholder="Field Value">
+                                    </mat-form-field>
+                                </div>
+                                <section class="example-section">
+                                    <mat-slide-toggle>
+                                    Show in print!
+                                    </mat-slide-toggle>
+                                </section>
+                            </ng-template>
+                        <!-- fnTransAF4(TransAdditionField4) -->
+                        <div class="row"><mat-checkbox color="primary" (click)="fnTransAF4(TransAdditionField4)">Additional Field4</mat-checkbox></div>
+                            <ng-template #TransAdditionField4 class="AddFieldDialog">
+                                <mat-toolbar color="primary" class="dialogHeading" fxLayoutAlign="center center">Additional Field4</mat-toolbar>
+                                <div class="row pl-2">
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Field Name</mat-label>
+                                        <input matInput placeholder="Field Name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="row pl-2">
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Date Format</mat-label>
+                                        <mat-select>
+                                            <mat-option>dd/mm/yyyy</mat-option>
+                                            <mat-option>mm/yy</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <section class="example-section">
+                                    <mat-slide-toggle>
+                                        Show in print!
+                                    </mat-slide-toggle>
+                                </section>
+                            </ng-template>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel >
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Show Fields On</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="SFO">
+                            <div class="row">
+                                <div class="col-lg-2"><mat-checkbox color="primary"> </mat-checkbox></div>
+                                <div class="col-lg-8">Sale</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2"><mat-checkbox color="primary"> </mat-checkbox></div>
+                                <div class="col-lg-8">Purchase</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2"><mat-checkbox color="primary"> </mat-checkbox></div>
+                                <div class="col-lg-8">Expense</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2"><mat-checkbox color="primary"> </mat-checkbox></div>
+                                <div class="col-lg-8">Payment In</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2"><mat-checkbox color="primary"> </mat-checkbox></div>
+                                <div class="col-lg-8">Payment Out</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2"><mat-checkbox color="primary"> </mat-checkbox></div>
+                                <div class="col-lg-8">Debit Note</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2"><mat-checkbox color="primary"> </mat-checkbox></div>
+                                <div class="col-lg-8">Credit Note</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2"><mat-checkbox color="primary"> </mat-checkbox></div>
+                                <div class="col-lg-8">Sales Order</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2"><mat-checkbox color="primary"> </mat-checkbox></div>
+                                <div class="col-lg-8">Purchase Order</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2"><mat-checkbox color="primary"> </mat-checkbox></div>
+                                <div class="col-lg-8">Estimate</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2"><mat-checkbox color="primary"> </mat-checkbox></div>
+                                <div class="col-lg-8">Delivery Challan</div>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+                
+            </div>
+            
+        </div>
+        
+          
+        
+    </div>
+</mat-card>

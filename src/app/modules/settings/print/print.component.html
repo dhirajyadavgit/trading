@@ -1,0 +1,1300 @@
+<div>
+    <span fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <button mat-raised-button color="primary" [useExistingCss]="true" printSectionId="toprint" ngxPrint> print </button>
+    </span>
+  </div>
+  <div>
+    <mat-tab-group style="width: 100%;">
+      <mat-tab  label="Regular Printer">
+        <mat-tab-group >
+          <mat-tab label="CHANGE LAYOUT">
+            <div class="row p-3">
+              <span class="col-lg-4"><a mat-list-item href="javascript:void(0)">
+                  <button mat-raised-button color="primary" (click)="showgstone()">GST Theame 1</button>
+                </a></span>
+              <span class="col-lg-4"><a mat-list-item href="javascript:void(0)">
+                  <button mat-raised-button color="primary" (click)="showgsttwo()">GST Theame 2</button>
+                </a></span>
+              <span class="col-lg-4"><a mat-list-item href="javascript:void(0)">
+                  <button mat-raised-button color="primary" (click)="showgstthree()">GST Theame 3</button>
+                </a></span>
+            </div>
+          </mat-tab>
+          <mat-tab label="CHANGE COLOR">
+            <div class="row p-3">
+              <div class="col-lg-2">
+                <button mat-button style="background-color: lightsalmon; border-radius: 100px;"
+                  (click)="changered()">Red</button>
+              </div>
+              <div class="col-lg-2 ">
+                <button mat-button style="background-color: lightgreen; border-radius: 100px;"
+                  (click)="changegreen()">Green</button>
+              </div>
+              <div class="col-lg-2 ">
+                <button mat-button style="background-color: lightskyblue; border-radius: 100px;"
+                  (click)="changeblue()">Blue</button>
+              </div>
+              <div class="col-lg-2 ">
+                <button mat-button style="background-color: orange; border-radius: 100px;"
+                  (click)="changeorange()">Orange</button>
+              </div>
+              <div class="col-lg-2 ">
+                <button mat-button style="background-color: pink; border-radius: 100px;"
+                  (click)="changepink()">Pink</button>
+              </div>
+            </div>
+          </mat-tab>
+  
+        </mat-tab-group>
+        <div fxLayout="row">
+          <div class="noscroll border size" fxFlex="50" >
+  
+            <h2>Print company info/header</h2>
+            <mat-divider></mat-divider> <br>
+            <div>
+              <mat-checkbox color="primary" [checked]="isChecked" (change)="openDialog($event)"> Make Regular Printer
+                Default </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox color="primary" (click)="showcompname()"> </mat-checkbox>
+              <mat-form-field class="wdh80pdl10" appearance="outline">
+                <mat-label>Company Name</mat-label>
+                <input matInput placeholder=" My Company " #cmpname (keyup)="getcompvalue(cmpname.value)">
+              </mat-form-field>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox color="primary" (click)="showcode()"> company logo  <a href="javascript:void(0)">(change)</a> </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox color="primary" (click)="showaddress()"> </mat-checkbox>
+              <mat-form-field appearance="outline" class="wdh80pdl10">
+                <input matInput placeholder=" Address " #add (keyup)="getaddress(add.value)">
+              </mat-form-field>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox color="primary" (click)="showemail()"> </mat-checkbox>
+              <mat-form-field appearance="outline" class="wdh80pdl10">
+                <input matInput placeholder=" Email " #emailid (keyup)="getemail(emailid.value)">
+              </mat-form-field>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox color="primary" (click)="showphno()"> </mat-checkbox>
+              <mat-form-field appearance="outline" class="wdh80pdl10">
+                <mat-label>Phone NUmber</mat-label>
+                <input matInput placeholder=" 1234567890 " #phno (keyup)="getphno(phno.value)">
+              </mat-form-field>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox color="primary" (click)="showgstin()"> </mat-checkbox>
+              <mat-form-field appearance="outline" class="wdh80pdl10">
+                <mat-label>GSTIN-NO</mat-label>
+                <input matInput  #gstinno (keyup)="getgstin(gstinno.value)">
+              </mat-form-field>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>  <br>
+            <div class="row">
+              <div class="col-md-5"> page size </div>
+              <div class="col-md-4">
+                <mat-select disableRipple>
+                  <mat-option value="1">A4</mat-option>
+                  <mat-option value="2">A5</mat-option>
+                </mat-select>
+              </div>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div class="row">
+              <div class="col-md-5"> Company Name Text Size </div>
+              <div class="col-md-4">
+                <mat-select disableRipple>
+                  <mat-option value="1">V. Small</mat-option>
+                  <mat-option value="2">Small</mat-option>
+                  <mat-option value="1">Medium</mat-option>
+                  <mat-option value="1">Large</mat-option>
+                  <mat-option value="1">V.Large</mat-option>
+                  <mat-option value="1">E.Large</mat-option>
+                </mat-select>
+              </div>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div class="row">
+              <div class="col-md-5"> invoice Text Size</div>
+              <div class="col-md-4">
+                <mat-select disableRipple>
+                  <mat-option value="1">V. Small</mat-option>
+                  <mat-option value="2">Small</mat-option>
+                  <mat-option value="1">Medium</mat-option>
+                  <mat-option value="1">Large</mat-option>
+                  <mat-option value="1">V.Large</mat-option>
+                  <mat-option value="1">E.Large</mat-option>
+                </mat-select>
+              </div>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br><br>
+            <div>
+              <mat-checkbox color="primary" (click)="showprtog()"> Print Original/Duplicate </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div> Extra space on Top of PDf <mat-icon class="infoicon">info</mat-icon>
+              <mat-form-field appearance="outline" style="width: 60px;"><input type="number" matInput></mat-form-field>
+            </div><br>
+            <div>
+              <p style="color: blue;" (click)="trsDialog()"> change Transaction Name > </p>
+            </div>
+            <h2>Item Table</h2>
+            <mat-divider></mat-divider>
+            <div>Min Number of row in item table <mat-icon class="infoicon">info</mat-icon>
+              <mat-form-field appearance="outline" style="width: 60px;"><input type="number" matInput></mat-form-field>
+            </div>
+            <div>
+              <p style="color: blue;" (click)="TblcustDialog(tbldialog)"> Item table Customization > </p>
+            </div>
+            <h2>Total and Taxes</h2>
+            <mat-divider></mat-divider><br>
+            <div>
+              <mat-checkbox color="primary"> Total Item Quantity </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary"> Amount with decimal </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary"> Recived amount </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary"> Balance amount </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary"> Current Balance of party </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary"> Tax Detail </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary" (click)="showamtwithgrp()"> Print amount with Grouping </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div class="row" *ngIf="isamtwithgrp">
+              <div class="col-md-5"> Amount in words <mat-icon class="infoicon">info</mat-icon>
+              </div>
+              <div class="col-md-4">
+                <mat-select disableRipple>
+                  <mat-option value="1">Indian</mat-option>
+                  <mat-option value="2">English</mat-option>
+                </mat-select>
+              </div>
+            </div>
+            <h2>FOOTER</h2>
+            <mat-divider></mat-divider><br>
+            <div>
+              <mat-checkbox color="primary" (click)="showprtdesc()"> Print Description </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <p style="color: blue;" (click)=TermconDialog(condDialog)>Terms and condition > </p>
+            </div>
+            <div>
+              <mat-checkbox color="primary" (click)="showsignature()"> </mat-checkbox>
+              <mat-form-field appearance="outline" style="width: 50%; padding-left: 10px;">
+                <mat-label>Print Signature Text</mat-label>
+                <input matInput placeholder="Authorized signatory" #signature
+                  (keyup)="getsignaturevalue(signature.value)">
+              </mat-form-field>
+              <mat-icon class="infoicon">info</mat-icon> <a href="javascript:void(0)">Change Signature</a>
+            </div>
+            <div>
+              <mat-checkbox color="primary" (click)="showpaymentmode()"> Payment Mode </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary"> Print Acknowledgement </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary" (click)="showupicode()"> UPI or Code </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+  
+          </div>
+  
+  
+          <!-- Here is recipet format start  -->
+          <div class="noscroll size" fxFlex="50" id="toprint">
+            <!-- // recipt one code  -->
+            <div *ngIf="isgstone">
+              <div fxLayout="row" class="bdr pd5">
+                <div fxFlex="50">
+                  <h2 style="text-align:right;"> sales </h2>
+                </div>
+                <div fxFlex="50" *ngIf="isprtog">
+                  <div fxLayoutAlign="flex-end"> Original Recipient <mat-checkbox color="primary"></mat-checkbox>
+                  </div>
+                  <div fxLayoutAlign="flex-end"> Dublicate for Transporator <mat-checkbox color="primary"></mat-checkbox>
+                  </div>
+                  <div fxLayoutAlign="flex-end"> Triplicate for supplier<mat-checkbox color="primary"></mat-checkbox>
+                  </div>
+                </div>
+              </div>
+              <div fxLayout="row" class="bdr pd5">
+                <div fxFlex="30"> <img *ngIf="islogo" src="../assets/logo.png" style="width: 100px; height: 50px;"
+                    alt="logo"> </div>
+                <div fxFlex="70">
+                  <div> <h2 *ngIf="iscompname" fxFlex fxLayout="row" fxLayoutAlign="flex-start" >{{compname}}</h2> 
+                    <span *ngIf="isphoneno" fxFlex fxLayout="row" style="text-align: center;">{{ phoneno }}</span> 
+                    <p *ngIf="isgstin" fxFlex fxLayout="row" fxLayoutAlign="flex-end"> {{ gstin }}  </p>
+                  </div>
+                  <div>
+                    <p *ngIf="isaddress" fxFlex fxLayout="row" fxLayoutAlign="flex-start"> {{ address }} </p> 
+                    <p fxFlex fxLayout="row" fxLayoutAlign="flex-end" *ngIf="isemail"> {{ email }} </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div fxFlex="30" class="bdr">
+                  <div [ngClass]="iscolor" class="bdrbtm" >BIll to </div>
+                  <div>Addresss</div>
+                </div>
+                <div fxFlex="30" class="bdr">
+                  <div [ngClass]="iscolor" class="bdrbtm">Shipping To</div>
+                  <div>Addresss</div>
+                </div>
+                <div fxFlex fxLayout="row" fxLayoutAlign="flex-end" class="bdr ">
+                  <p>Invoice NO : INV.101 <br>
+                    Date 02.07.2019 <br>
+                    Due Date 17.07.2019</p>
+                </div>
+              </div>
+              <div >
+                <table style="width: 100%;" class="bdr">
+                  <tr [ngClass]="iscolor">
+                    <th>#</th>
+                    <th>Item Name</th>
+                    <th>HSN/SAC</th>
+                    <th>Quantity</th>
+                    <th>Print/Unit</th>
+                    <th>Discount</th>
+                    <th>GST</th>
+                    <th>Amount</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>Item 1</td>
+                    <td>1234</td>
+                    <td>1</td>
+                    <td>10.0</td>
+                    <td>0.10</td>
+                    <td>0.50</td>
+                    <td>10.40</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Item 2</td>
+                    <td>6345</td>
+                    <td>1</td>
+                    <td>30.0</td>
+                    <td>0.0</td>
+                    <td>5.4</td>
+                    <td>35.4</td>
+                  </tr>
+                  <tr>
+                    <td>.</td>
+                    <td>Total</td>
+                    <td>.</td>
+                    <td>2</td>
+                    <td>.</td>
+                    <td>0.1</td>
+                    <td>0.5</td>
+                    <td>45.5</td>
+                  </tr>
+                </table>
+              </div>
+              <div fxLayout="row" >
+                <div fxFlex="50" class="bdr">
+                  <div [ngClass]="iscolor" class="bdrbtm">Invoice amount in words</div>
+                  <div>thirty tow rupees and fourth two paise</div>
+                  <div [ngClass]="iscolor" *ngIf="ispaymentmode" class="bdrbtm">Payment Mode</div>
+                  <div *ngIf="ispaymentmode">Cash (₹ 1234)</div>
+                </div>
+                <div fxFlex="50" class="bdr">
+                  <div [ngClass]="iscolor" class="bdrbtm">ammount </div>
+                  <div>
+                    <div fxFlex="50">Sub Total</div>
+                    <div fxFlex="50">₹ 45.02</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">Discount </div>
+                    <div fxFlex="50">₹ 5.01</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">TAx</div>
+                    <div fxFlex="50">₹2.01</div>
+                  </div>
+                  <mat-divider></mat-divider>
+                  <div>
+                    <div fxFlex="50">Total</div>
+                    <div fxFlex="50">₹45.25</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">recived</div>
+                    <div fxFlex="50">₹12</div>
+                  </div>
+                  <mat-divider></mat-divider>
+                  <div>
+                    <div fxFlex="50">Balance</div>
+                    <div fxFlex="50">₹33.01</div>
+                  </div>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="50" class="bdr">
+                  <div [ngClass]="iscolor" class="bdrbtm">
+                    <div fxFlex="25">Tax Type</div>
+                    <div fxFlex="25">Taxable Amount</div>
+                    <div fxFlex="25">Rate</div>
+                    <div fxFlex="25">Tax Amount</div>
+                  </div>
+                  <div>
+                    <div fxFlex="25">SGST</div>
+                    <div fxFlex="25">₹50.01</div>
+                    <div fxFlex="25">2.5%l</div>
+                    <div fxFlex="25">₹ 1.26</div>
+                  </div>
+                  <div>
+                    <div fxFlex="25">CGST</div>
+                    <div fxFlex="25">₹50.14</div>
+                    <div fxFlex="25">2.5%</div>
+                    <div fxFlex="25">₹ 1.26</div>
+                  </div>
+                  <div>
+                    <div fxFlex="25">SGST</div>
+                    <div fxFlex="25">₹30.21</div>
+                    <div fxFlex="25">9%</div>
+                    <div fxFlex="25">₹ 2.70</div>
+                  </div>
+                  <div>
+                    <div fxFlex="25">CGST</div>
+                    <div fxFlex="25">₹14.89</div>
+                    <div fxFlex="25">9%</div>
+                    <div fxFlex="25">₹ 2.70</div>
+                  </div>
+                </div>
+                <div fxFlex="50" class="bdr">
+                  <div *ngIf="isprtdesc" [ngClass]="iscolor" class="bdrbtm">Description
+                  </div>
+                  <div *ngIf="isprtdesc">sales description</div>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="40" class="bdr">
+                  <div [ngClass]="iscolor" class="bdrbtm">Terms and Condition </div>
+                  <div> thanks for doing business with us </div>
+                  <div [ngClass]="iscolor" class="bdrbtm ">Banks Details </div>
+                  <div> Bank no : 123456789 </div>
+                  <div> Bank no : 123456789 </div>
+                  <div> Bank no : 123456789</div>
+                </div>
+                <div fxFlex="30" class="bdr pd5">
+                  <div [ngClass]="iscolor"> UPI code </div>
+                  <div *ngIf="isupicode"><img src="../assets/upi.png" style="width: 100px; height: 100px;" alt="code">
+                  </div>
+                </div>
+                <div fxFlex="30" class="bdr pd5">
+                  <div [ngClass]="iscolor" *ngIf="issignature"> signature </div>
+                  <div *ngIf="issignature"> {{ sign }} </div>
+                  <div> From, MY Company </div>
+                  <div> <img src="../assets/logo.png" style="width: 100px; height: 50px;" alt="logo"></div>
+                </div>
+              </div>
+  
+            </div>
+             <!-- // recipt one code end here -->
+  
+              <!-- // recipt two code start   -->
+            <div *ngIf="isgsttwo">
+              <div fxLayout="row" class="bdr pd5">
+                <div fxFlex="70" >
+                  <div> <h2 *ngIf="iscompname" fxFlex fxLayout="row" fxLayoutAlign="flex-start">{{compname}}</h2> 
+                    <span *ngIf="isphoneno" fxFlex fxLayout="row" style="text-align: center;">{{ phoneno }}</span> 
+                     <p fxFlex fxLayout="row" fxLayoutAlign="flex-end" *ngIf="isemail"> {{ gstin }} </p>
+                  </div>
+                  <div>
+                    <p *ngIf="isaddress" fxFlex fxLayout="row" fxLayoutAlign="flex-start"> {{ address }} </p> 
+                    <p *ngIf="isgstin" fxFlex fxLayout="row" fxLayoutAlign="flex-end"> {{ email }}  </p>
+                  </div>
+                </div>
+                <div fxFlex="30" fxFlex fxLayout="row" fxLayoutAlign="flex-end"> <img *ngIf="islogo"
+                    src="../assets/logo.png" style="width: 100px; height: 50px;" alt="logo"> 
+                </div>
+              </div>
+              <div fxLayout="row" class="bdr pd5">
+                <div fxFlex="50">
+                  <h2 style="text-align: right;"> sales 2</h2>
+                </div>
+                <div fxFlex="50" *ngIf="isprtog">
+                  <div fxLayoutAlign="flex-end"> Original Recipient<mat-checkbox color="primary"></mat-checkbox>
+                  </div>
+                  <div fxLayoutAlign="flex-end"> Dublicate for Transporator<mat-checkbox color="primary"></mat-checkbox>
+                  </div>
+                  <div fxLayoutAlign="flex-end">  Triplicate for supplier<mat-checkbox color="primary"></mat-checkbox>
+                  </div>
+                </div>
+              </div>
+              <div class="bdr pd5">
+                <div fxFlex="30">
+                  <div [ngClass]="iscolor"> <b> BIll to </b> </div>
+                  <p> <b> Classic enterprise</b> <br>
+                    plot no - 1 , shop no -8 , Koranage banglore <br>
+                    86034 <br>
+                    Contact no - 888888888</p>
+                </div>
+                <div fxFlex="30">
+                  <div [ngClass]="iscolor" ><b> Shipping To </b></div>
+                  <div>Matrix Textile , mahalaxmi road , banglore</div>
+                  <div>Karnataka 245789</div>
+                </div>
+                <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+                  <p> <b> Invoice NO : INV.101 </b> <br>
+                    <b> Date 02.07.2019 </b> <br>
+                    <b> Due Date 17.07.2019 </b>
+                  </p>
+                </div>
+              </div>
+              <div >
+                <table style="width: 100%;" class="bdr">
+                  <tr [ngClass]="iscolor">
+                    <th>#</th>
+                    <th>Item Name</th>
+                    <th>HSN/SAC</th>
+                    <th>Quantity</th>
+                    <th>Print/Unit</th>
+                    <th>Discount</th>
+                    <th>GST</th>
+                    <th>Amount</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>Item 1</td>
+                    <td>1234</td>
+                    <td>1</td>
+                    <td>10.0</td>
+                    <td>0.10</td>
+                    <td>0.50</td>
+                    <td>10.40</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Item 2</td>
+                    <td>6345</td>
+                    <td>1</td>
+                    <td>30.0</td>
+                    <td>0.0</td>
+                    <td>5.4</td>
+                    <td>35.4</td>
+                  </tr>
+                  <tr>
+                    <td>.</td>
+                    <td>Total</td>
+                    <td>.</td>
+                    <td>2</td>
+                    <td>.</td>
+                    <td>0.1</td>
+                    <td>0.5</td>
+                    <td>45.5</td>
+                  </tr>
+                </table>
+              </div>
+              <div fxLayout="row" class="bdr">
+                <div fxFlex="50">
+                  <div [ngClass]="iscolor"><b> Description </b> </div>
+                  <div>sales description</div>
+                  <div [ngClass]="iscolor"> <b> Invoice amount in words </b></div>
+                  <div>thirty tow rupees and fourth two paise</div>
+                  <div [ngClass]="iscolor" *ngIf="ispaymentmode">Payment Mode</div>
+                  <div *ngIf="ispaymentmode">Cash (1234)</div>
+                  <div [ngClass]="iscolor"><b> Terms and Condition </b> </div>
+                  <div> thanks for doing business with us </div>
+                </div>
+                <div fxFlex="50">
+                  <div>
+                    <div fxFlex="50">Sub Total</div>
+                    <div fxFlex="50">₹ 4000</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">Discount </div>
+                    <div fxFlex="50">₹ 0.100</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">SGST@2.5%</div>
+                    <div fxFlex="50">₹ 0.25</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">CGST@2.5%</div>
+                    <div fxFlex="50">₹ 0.25</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">SGST@9%</div>
+                    <div fxFlex="50">₹ 2.70</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">CGST@9%</div>
+                    <div fxFlex="50">₹ 2.70</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">Discount(10%) </div>
+                    <div fxFlex="50">₹ 5.50</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">SGST@2.5%</div>
+                    <div fxFlex="50">₹ 1.01</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">CGST@2.5%</div>
+                    <div fxFlex="50">₹ 1.01</div>
+                  </div>
+                  <div [ngClass]="iscolor" class="bdrbtm ">
+                    <div fxFlex="50">Total</div>
+                    <div fxFlex="50">₹ 42.32 </div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">Recived</div>
+                    <div fxFlex="50">₹ 12.001</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">Balance</div>
+                    <div fxFlex="50">₹ 30.32</div>
+                  </div>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="60" class="bdr pd5">
+                  <div [ngClass]="iscolor"> UPI code </div>
+                  <div><img src="../assets/upi.png" style="width: 100px; height: 100px;" alt="code"></div>
+                </div>
+                <div fxFlex="60" class="bdr pd5">
+                  <div> From, MY Company </div>
+                  <div> <img src="../assets/logo.png" style="width: 100px; height: 50px;" alt="logo"></div>
+                  <div [ngClass]="iscolor"> signature </div>
+                  <div> {{ sign }} </div>
+                </div>
+              </div>
+  
+            </div>
+            <!-- // recipt Two code end here -->
+  
+              <!-- // recipt three code start  -->
+            <div *ngIf="isgstthree">
+              <div fxLayout="row" class="bdr pd5">
+                <div fxFlex="50">
+                  <h2 style="text-align: right;"> sales 3</h2>
+                </div>
+                <div fxFlex="50" *ngIf="isprtog">
+                  <div fxLayoutAlign="flex-end">Original Recipient<mat-checkbox color="primary"></mat-checkbox>
+                  </div>
+                  <div fxLayoutAlign="flex-end">Dublicate for Transporator<mat-checkbox color="primary"></mat-checkbox>
+                  </div>
+                  <div fxLayoutAlign="flex-end">Triplicate for supplier<mat-checkbox color="primary"></mat-checkbox>
+                  </div>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="50" class="bdr ">
+                  <div class="bdrbtm pd5">
+                    <div fxFlex="50"> <img src="../assets/logo.png" style="width: 100px; height: 100px;" alt="logo">
+                    </div>
+                    <div fxFlex="50">
+                      <div> 
+                          <h3 *ngIf="iscompname" >{{compname}}</h3> 
+                          <p *ngIf="isphoneno"> {{ phoneno }}</p> 
+                          <p *ngIf="isemail"> {{ gstin }} </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bdrbtm">
+                    <p *ngIf="isaddress" > {{ address }} </p> 
+                    <p *ngIf="isgstin" > {{ email }}  </p>
+                  </div>
+                  <div>Bill To</div>
+                  <div> <b>Classic Enterprise</b></div>
+                  <div> plot no - 1 , shop no -8 , Koranage banglore 56478</div>
+                  <div>Contact No-8888888</div>
+                </div>
+                <div fxFlex="50" class="bdr">
+                  <div class="bdrbtm ">
+                    <div fxFlex="50"> Invoice No;- <br> <b>Inv:- 101</b></div>
+                    <div fxFlex="50">Date :- <br> <b>27-09-2019</b></div>
+                  </div>
+                  <div class="bdrbtm ">
+                    <div fxFlex="50">Date :- <br> <b>27-09-2019</b></div>
+                    <div fxFlex="50">Transport Name <br> <b>Transport LLT</b></div>
+                  </div>
+                  <div class="bdrbtm ">
+                    <div fxFlex="50">Vehical Number <br> <b>DL SD 1234</b></div>
+                    <div fxFlex="50">Delivery Date :- <br> <b>13-09-2019</b></div>
+                  </div>
+                  <div class="bdrbtm">Delivery LOcation <br> <b>Delhi</b></div>
+                  <div >Ship to - <br> Mehta textile , mahalaskmi road banglure kalkata 12345
+                  </div>
+                </div>
+              </div>
+              <div >
+                <table style="width: 100%;" class="bdr">
+                  <tr [ngClass]="iscolor">
+                    <th>#</th>
+                    <th>Item Name</th>
+                    <th>HSN/SAC</th>
+                    <th>Quantity</th>
+                    <th>Print/Unit</th>
+                    <th>Discount</th>
+                    <th>GST</th>
+                    <th>Amount</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>Item 1</td>
+                    <td>1234</td>
+                    <td>1</td>
+                    <td>10.0</td>
+                    <td>0.10</td>
+                    <td>0.50</td>
+                    <td>10.40</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Item 2</td>
+                    <td>6345</td>
+                    <td>1</td>
+                    <td>30.0</td>
+                    <td>0.0</td>
+                    <td>5.4</td>
+                    <td>35.4</td>
+                  </tr>
+                  <tr>
+                    <td>.</td>
+                    <td>Total</td>
+                    <td>.</td>
+                    <td>2</td>
+                    <td>.</td>
+                    <td>0.1</td>
+                    <td>0.5</td>
+                    <td>45.5</td>
+                  </tr>
+                </table>
+              </div>
+              <div fxLayout="row" >
+                <div fxFlex="50" class="bdr ">
+                  <div >
+                    <div [ngClass]="iscolor" class="bdrbtm">Invoice amount in words</div>
+                    <div>thirty tow rupees and fourth two paise</div>
+                  </div>
+                  <div>
+                    <div [ngClass]="iscolor" *ngIf="ispaymentmode" class="bdrbtm ">Payment Mode</div>
+                    <div *ngIf="ispaymentmode">Cash (1234)</div>
+                  </div>
+                  <div>
+                    <div class="bdrbtm"  [ngClass]="iscolor">Description </div>
+                    <div>sales description</div>
+                  </div>
+                </div>
+                <div fxFlex="50" class="bdr">
+                  <div [ngClass]="iscolor" class="bdrbtm">ammount </div>
+                  <div>
+                    <div fxFlex="50">Sub Total</div>
+                    <div fxFlex="50">$ 45.02</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">Discount </div>
+                    <div fxFlex="50">$ 5.01</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">TAx</div>
+                    <div fxFlex="50">$2.01</div>
+                  </div>
+                  <mat-divider></mat-divider>
+                  <div>
+                    <div fxFlex="50">Total</div>
+                    <div fxFlex="50">$45.25</div>
+                  </div>
+                  <div>
+                    <div fxFlex="50">recived</div>
+                    <div fxFlex="50">$12</div>
+                  </div>
+                  <mat-divider></mat-divider>
+                  <div>
+                    <div fxFlex="50">Balance</div>
+                    <div fxFlex="50">$33.01</div>
+                  </div>
+                </div>
+              </div>
+              <div fxLayout="row">
+                <div fxFlex="60" class="bdr pd5">
+                  <div [ngClass]="iscolor"> UPI code </div>
+                  <div><img src="../assets/upi.png" style="width: 100px; height: 100px;" alt="code"></div>
+                </div>
+                <div fxFlex="60" class="bdr pd5">
+                  <div> From, MY Company </div>
+                  <div> <img src="../assets/logo.png" style="width: 100px; height: 50px;" alt="logo"></div>
+                  <div [ngClass]="iscolor"> signature </div>
+                  <div> {{ sign }} </div>
+                </div>
+              </div>
+  
+            </div>
+            <!-- // recipt three code end here -->
+          </div>
+          <!-- Recipt format end -->
+        </div>
+      </mat-tab>
+      <mat-tab label="Thermal Printer">
+        <mat-tab-group>
+          <mat-tab label="CHANGE LAYOUT">
+            <div class="row p-3">
+              <span class="col-lg-4"><a mat-list-item href="javascript:void(0)">
+                  <button mat-raised-button color="primary" (click)="showgstone()">GST Theame 1</button>
+                </a></span>
+              <span class="col-lg-4"><a mat-list-item href="javascript:void(0)">
+                  <button mat-raised-button color="primary" (click)="showgsttwo()">GST Theame 2</button>
+                </a></span>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+  
+        <!-- this is the thermal printer left side start  -->
+        <div fxLayout="row">
+          <div class="noscroll border size" fxFlex="50">
+            <br>
+            <div>
+              <mat-checkbox color="primary" [checked]="isCheckedthermal" (change)="openDialogthermal($event)"> Make
+                Thermal Printer Default </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>
+            <div>
+              Page Size
+              <button mat-raised-button (click)="showtxtsize()"
+                style="height: 65px; width: 65px; color: rgb(131, 162, 245); background-color: rgb(223, 233, 247);  margin: 5px;">
+                2 inch <br> 58mm
+              </button>
+              <button mat-raised-button
+                style="height: 70px; width: 70px; color: rgb(131, 162, 245); background-color: rgb(223, 233, 247); margin: 5px;">
+                3 inch <br> 68mm
+              </button>
+              <button mat-raised-button
+                style="height: 75px; width: 75px; color: rgb(131, 162, 245); background-color: rgb(223, 233, 247); margin: 5px;">
+                4 inch <br> 88mm
+              </button>
+              <button mat-raised-button
+                style="height: 80px; width: 80px; color: rgb(131, 162, 245); background-color: rgb(223, 233, 247); margin: 5px;">
+                Custom <br> 48 chars
+              </button>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div *ngIf="istxtsize">
+              Text Size
+              <button mat-raised-button style=" background-color: rgb(223, 233, 247)" >
+                Regular</button>
+              <button mat-raised-button style=" background-color: rgb(223, 233, 247)">
+                Small</button>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div> <br>
+            <div class="row" *ngIf="isintxtsize">
+              <div class="col-md-5"> invoice Text Size</div>
+              <div class="col-md-4">
+                <mat-select disableRipple>
+                  <mat-option value="1">V. Small</mat-option>
+                  <mat-option value="2">Small</mat-option>
+                  <mat-option value="1">Medium</mat-option>
+                  <mat-option value="1">Large</mat-option>
+                  <mat-option value="1">V.Large</mat-option>
+                  <mat-option value="1">E.Large</mat-option>
+                </mat-select>
+              </div>
+            </div> <br>
+            <mat-divider></mat-divider>
+            <br>
+            <div>
+              <mat-checkbox color="primary" (click)="showintxtsize()"> Enable Native Language</mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary"> Use Text Styling ( <b>Bold</b> ) </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary"> Auto Cut Paper After Printing </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary">Open Cash Drawer After Printing </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div> Extra lines at the end <mat-icon class="infoicon">info</mat-icon>
+              <mat-form-field appearance="outline" style="width: 60px;"><input type="number" matInput></mat-form-field>
+            </div><br>
+            <div> Number of Copies <mat-icon class="infoicon">info</mat-icon>
+              <mat-form-field appearance="outline" style="width: 60px;"><input type="number" matInput></mat-form-field>
+            </div>
+            <h2>Print company info/header</h2>
+            <mat-divider></mat-divider> <br>
+            <div>
+              <mat-checkbox color="primary" (click)="showcompnamet()"> </mat-checkbox>
+              <mat-form-field class="wdh80pdl10" appearance="outline">
+                <mat-label>Company Name</mat-label>
+                <input matInput placeholder=" My Company " #compnamet (keyup)="getcompvaluet(compnamet.value)">
+              </mat-form-field>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox color="primary" (click)="showaddresst()"> </mat-checkbox>
+              <mat-form-field appearance="outline" class="wdh80pdl10">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder=" Address " #addt (keyup)="getaddressvaluet(addt.value)">
+              </mat-form-field>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox color="primary" (click)="showemailt()"> </mat-checkbox>
+              <mat-form-field appearance="outline" class="wdh80pdl10">
+                <mat-label>Email id</mat-label>
+                <input matInput placeholder=" Email " #mailt (keyup)="getemailvaluet(mailt.value)">
+              </mat-form-field>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox color="primary" (click)="showphnot()"> </mat-checkbox>
+              <mat-form-field appearance="outline" class="wdh80pdl10">
+                <mat-label>Phone NUmber</mat-label>
+                <input matInput placeholder=" 1234567890 " #phnot (keyup)="getphnot(phnot.value)">
+              </mat-form-field>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>
+            <div>
+              <mat-checkbox color="primary" (click)="showgstint()"> </mat-checkbox>
+              <mat-form-field appearance="outline" class="wdh80pdl10">
+                <mat-label>GSTIN on Sale</mat-label>
+                <input matInput placeholder=" GSTIN on Sale " #gstint (keyup)="getgstinvaluet(gstint.value)">
+              </mat-form-field>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div>
+            <div>
+              <p style="color: blue;" (click)="trsDialog()"> change Transaction Name > </p>
+            </div>
+            <h2>Total and Taxes</h2>
+            <mat-divider></mat-divider><br>
+            <div>
+              <mat-checkbox color="primary" (click)="showtotalrow()"> Total Item Quantity </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary"> Amount with decimal </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary" (click)="showrecamt()"> Recived amount </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary" (click)="showblcamt()"> Balance amount </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary" (click)="showcurrblc()"> Current Balance of party </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <mat-checkbox color="primary" (click)="showtaxdetail()"> Tax Detail </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <h2>FOOTER</h2>
+            <mat-divider></mat-divider><br>
+            <div>
+              <mat-checkbox color="primary" (click)="showdesc()"> Print Description </mat-checkbox>
+              <mat-icon class="infoicon">info</mat-icon>
+            </div><br>
+            <div>
+              <p style="color: blue;" (click)=TermconDialog(condDialog)>Terms and condition > </p>
+            </div>
+          </div>
+          <!-- this is the thermal printer left side end here  -->
+  
+  
+          <!-- Here is thermal print right site print from  recipet format start  -->
+          <mat-card style="width: 100%;">
+            <div class="noscroll" id="toprint">
+              <div style="padding-left: 25px;">
+                  <div ><h2 *ngIf="iscompnamet" style="text-align: center;">   {{ cmpnamet }} </h2></div>
+                  <div ><p *ngIf="isphnot" style="text-align: center;">  {{ phonenot  }} </p></div>
+                  <div ><p *ngIf="isaddresst" style="text-align: center;"> {{ addresst  }} </p></div>
+                  <div ><p *ngIf="isemailt" style="text-align: center;"> {{ emailt  }} </p></div>
+                  <div ><p *ngIf="isgstint" style="text-align: center;"> {{ gstin  }} </p></div>
+                  <div  > <h3 style="text-align: center;"> Tax invoice </h3> </div>
+                  <div class="row">Prakash Singh</div>
+                  <div class="row">Sarjapura Road</div>
+                  <div class="row">Banglure</div>
+                  <div class="row">Phone no : 88888888</div>
+                  <div class="row">Ship To:- </div>
+                  <div class="row">Marthali Raod Banglure</div>
+                  <div class="row">Contat NO : 987998797 </div>
+                  <div class="row "> <span fxFlex fxLayout="row" fxLayoutAlign="flex-end"> PO Date : 16/07/19 </span></div>
+                  <div class="row "> <span fxFlex fxLayout="row" fxLayoutAlign="flex-end"> PO Number : 12345 </span> </div> <br>
+                  <div class="row">
+                    <table style="width: 100%;">
+                      <tr class="bdrbtm">
+                        <td>sr</td>
+                        <td>Name</td>
+                        <td>Qty</td>
+                        <td>Price</td>
+                        <td></td>
+                        <td>Amount</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>Item 1</td>
+                        <td>20.0</td>
+                        <td>200.00</td>
+                        <td></td>
+                        <td>4000.00</td>
+                      </tr>
+                      <tr>
+                        <td colspan="4"></td>
+                        <td>Discount(5.0%)</td>
+                        <td>200.00</td>
+                      </tr>
+                      <tr>
+                        <td>HSN:1005</td>
+                        <td colspan="3"></td>
+                        <td>Gst @ 18% </td>
+                        <td>684.00</td>
+                      </tr>
+                      <tr class="bdrbtm">
+                        <td colspan="4"></td> 
+                        <td>Add CESS</td>
+                        <td>400.00</td>
+                      </tr>
+                      <tr >
+                        <td colspan="2"> <span *ngIf="istotalrow" > Toatal </span></td> 
+                        <td colspan="2"> <span *ngIf="istotalrow"> 20.0 </span></td>
+                        <td></td>
+                        <td >4884.0</td>
+                      </tr>
+                      <tr>
+                        <td colspan="4"></td>
+                        <td>Discount(10.0%)</td>
+                        <td>488.40</td>
+                      </tr>
+                      <tr>
+                        <td colspan="4"></td>
+                        <td>Tax(5.0%)</td>
+                        <td>219.08</td>
+                      </tr>
+                      <tr>
+                        <td colspan="4"></td>
+                        <td>Total</td>
+                        <td>4615.38</td> 
+                      </tr>  
+                      <tr>
+                        <td colspan="4"></td>
+                        <td *ngIf="isrecamt">Recived</td>
+                        <td *ngIf="isrecamt">200.00</td> 
+                       </tr> 
+                      <tr>
+                        <td colspan="4"></td>
+                        <td *ngIf="isblcamt">Balance</td>
+                        <td *ngIf="isblcamt">4415.38</td>
+                      </tr> 
+                       <tr>
+                        <td colspan="4"></td>
+                        <td *ngIf="iscrtblc">Previous Balance </td>
+                        <td *ngIf="iscrtblc">2000.00</td>
+                      </tr> 
+                      <tr>
+                        <td colspan="4"></td>
+                        <td *ngIf="iscrtblc">Current Balance </td>
+                        <td *ngIf="iscrtblc">6145.38</td>
+                      </tr> 
+                      <tr *ngIf="istaxdetail">
+                        <td colspan="4"></td>
+                        <td>Tax Detail</td>
+                        <td></td>
+                      </tr> 
+                      <tr *ngIf="istaxdetail">
+                        <td colspan="4"></td>
+                        <td>SGST@2.5% </td>
+                        <td>109.89</td>
+                      </tr> 
+                      <tr *ngIf="istaxdetail">
+                        <td colspan="4"></td>
+                        <td>CGST@2.5% </td>
+                        <td>109.89</td>
+                      </tr> 
+                      <tr *ngIf="istaxdetail">
+                        <td colspan="4"></td>
+                        <td>SGST@9.0% </td>
+                        <td>342.00</td>
+                      </tr> 
+                      <tr *ngIf="istaxdetail">
+                        <td colspan="4"></td>
+                        <td>CGST@9.0% </td>
+                        <td>342.00</td>
+                      </tr> 
+                      <tr *ngIf="istaxdetail">
+                        <td colspan="4"></td>
+                        <td>Add. CESS </td>
+                        <td>400.00</td>
+                      </tr> 
+                    </table>
+                  </div> <br>
+                  <div *ngIf="isdesc" class="row">Sale Description</div>
+                  <div class="row">Thanks for Doing Business with us.</div>
+              </div>
+            </div>
+          </mat-card>
+          <!-- Recipt format end here print form right side -->
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  
+   <!-- item table customization dialogbox start  -->
+  <ng-template #tbldialog>
+    <div class="dialoghead">
+      <h3 mat-dialog-title>Item Table Customization </h3>
+      <span fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+        <span mat-button mat-dialog-close>
+          <mat-icon>highlight_off</mat-icon>
+        </span>
+      </span>
+    </div> <br>
+    <mat-dialog-content class="mat-typography">
+      <div>
+        <table class="bdr">
+          <tr style="background-color: lightsteelblue">
+            <th *ngIf="isfirst">#</th>
+            <th *ngIf="isitemno">Item Number</th>
+            <th>Item Name</th>
+            <th *ngIf="isitemcode">Item Code</th>
+            <th *ngIf="ishsnsac">HSN/SAC</th>
+            <th *ngIf="iscount">Count</th>
+            <th *ngIf="isbatchno">Batch NUmber</th>
+            <th *ngIf="isexpdt">Exp date</th>
+            <th *ngIf="ismfgdt">Mfg Date</th>
+            <th *ngIf="ismrp">MRP</th>
+            <th *ngIf="issize">Size</th>
+            <th *ngIf="isquantity">Quantity</th>
+            <th *ngIf="isprice">Price/unit</th>
+            <th *ngIf="isdiscount">Discount</th>
+            <th *ngIf="istaxable">Taxable</th>
+            <th *ngIf="isamount">Amount</th>
+  
+          </tr>
+          <tr>
+            <td *ngIf="isfirst">.</td>
+            <td *ngIf="isitemno">Item 1</td>
+            <td>Item 1</td>
+            <td *ngIf="isitemcode">123</td>
+            <td *ngIf="ishsnsac">101</td>
+            <td *ngIf="iscount">10</td>
+            <td *ngIf="isbatchno">AY101</td>
+            <td *ngIf="isexpdt">09/21</td>
+            <td *ngIf="ismfgdt">31/20</td>
+            <td *ngIf="ismrp">500</td>
+            <td *ngIf="issize">1</td>
+            <td *ngIf="isquantity">1</td>
+            <td *ngIf="isprice">500</td>
+            <td *ngIf="isdiscount">25</td>
+            <td *ngIf="istaxable">475</td>
+            <td *ngIf="isamount">560</td>
+          </tr>
+        </table>
+      </div> <br>
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Item Related Columns</h2>
+          <mat-divider></mat-divider> <br>
+          <div>
+            <mat-checkbox color="primary" class="mt-4" (click)="showfirst()"></mat-checkbox>
+            <mat-form-field class="wdh80pdl10" appearance="outline">
+              <mat-label>Sr No</mat-label>
+              <input matInput placeholder=" 0 ">
+            </mat-form-field>
+            <mat-icon class="infoicon mt-4">info</mat-icon>
+          </div>
+          <div>
+            <mat-checkbox color="primary"></mat-checkbox>
+            <mat-form-field class="wdh80pdl10" appearance="outline">
+              <mat-label> Item Name</mat-label>
+              <input matInput placeholder=" Item Name ">
+            </mat-form-field>
+            <mat-icon class="infoicon mt-4">info</mat-icon>
+          </div>
+          <div>
+            <mat-checkbox color="primary" (click)="showittemcode()"></mat-checkbox>
+            <mat-form-field class="wdh80pdl10" appearance="outline">
+              <mat-label> Item code</mat-label>
+              <input matInput placeholder=" Item Code ">
+            </mat-form-field>
+            <mat-icon class="infoicon mt-4">info</mat-icon>
+          </div>
+          <div>
+            <mat-checkbox color="primary" (click)="showhsnsac()"></mat-checkbox>
+            <mat-form-field class="wdh80pdl10" appearance="outline">
+              <mat-label>HSN / SAC</mat-label>
+              <input matInput placeholder=" HSN / SAC ">
+            </mat-form-field>
+            <mat-icon class="infoicon mt-4">info</mat-icon>
+          </div>
+  
+        </div>
+        <div class="col-md-4">
+          <h2>Item Related Columns</h2>
+          <mat-divider></mat-divider><br>
+          <div>
+            <mat-checkbox color="primary" (click)="showbatchno()"> Batch Number </mat-checkbox>
+          </div><br>
+          <div>
+            <mat-checkbox color="primary" (click)="showexpdt()"> Exp Date </mat-checkbox>
+          </div><br>
+          <div>
+            <mat-checkbox color="primary" (click)="showmfgdt()"> Mfg Date </mat-checkbox>
+          </div><br>
+          <div>
+            <mat-checkbox color="primary" (click)="showmrp()"> MRP </mat-checkbox>
+          </div><br>
+          <div>
+            <mat-checkbox color="primary" (click)="showsize()"> Size </mat-checkbox>
+          </div><br>
+          <div>
+            <mat-checkbox color="primary"> Serial Number </mat-checkbox>
+          </div><br>
+          <div>
+            <mat-checkbox color="primary"> Description </mat-checkbox>
+          </div><br>
+          <div>
+            <mat-checkbox color="primary" (click)="showcount()"> Count </mat-checkbox>
+          </div><br>
+        </div>
+        <div class="col-md-4">
+          <h2>Item Related Columns</h2>
+          <mat-divider></mat-divider> <br>
+          <div>
+            <mat-checkbox color="primary" (click)="showquantity()"></mat-checkbox>
+            <mat-form-field class="wdh80pdl10" appearance="outline">
+              <mat-label>Quantity</mat-label>
+              <input matInput placeholder=" Quantity ">
+            </mat-form-field>
+            <mat-icon class="infoicon mt-4">info</mat-icon>
+          </div>
+          <div>
+            <mat-checkbox color="primary"></mat-checkbox>
+            <mat-form-field class="wdh80pdl10" appearance="outline">
+              <mat-label> Unit </mat-label>
+              <input matInput placeholder=" Unit ">
+            </mat-form-field>
+            <mat-icon class="infoicon mt-4">info</mat-icon>
+          </div>
+          <div>
+            <mat-checkbox color="primary" (click)="showprice()"></mat-checkbox>
+            <mat-form-field class="wdh80pdl10" appearance="outline">
+              <mat-label> Price/Unit </mat-label>
+              <input matInput placeholder=" Price/Unit ">
+            </mat-form-field>
+            <mat-icon class="infoicon mt-4">info</mat-icon>
+          </div>
+          <div>
+            <mat-checkbox color="primary"></mat-checkbox>
+            <mat-form-field class="wdh80pdl10" appearance="outline">
+              <mat-label>Discount/Amount</mat-label>
+              <input matInput placeholder=" Discount ">
+            </mat-form-field>
+            <mat-icon class="infoicon mt-4">info</mat-icon>
+          </div>
+          <div>
+            <mat-checkbox color="primary" (click)="showdiscount()"> Discount Percent </mat-checkbox>
+          </div> <br>
+          <div>
+            <mat-checkbox color="primary"></mat-checkbox>
+            <mat-form-field class="wdh80pdl10" appearance="outline">
+              <mat-label> Price/Unit</mat-label>
+              <input matInput placeholder="Price/Unit ">
+            </mat-form-field>
+            <mat-icon class="infoicon ">info</mat-icon>
+          </div>
+          <div>
+            <mat-checkbox color="primary" (click)="showtaxable()"> Tax Amount </mat-checkbox>
+          </div>
+        </div>
+      </div>
+  
+    </mat-dialog-content>
+    <mat-divider></mat-divider>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close color="primary">Done</button>
+    </mat-dialog-actions>
+  </ng-template>
+  <!-- item table customization dialogbox end  -->
+  
+  <!-- condition dialogbox start  -->
+  <ng-template #condDialog>
+    <div style="width: 500px;">
+      <div class="dialoghead" >
+        <h3 mat-dialog-title>Terms and Conditions </h3>
+        <span fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+          <mat-icon>info</mat-icon>
+          <span mat-dialog-close>
+            <mat-icon>highlight_off</mat-icon>
+          </span>
+        </span>
+      </div>
+      <mat-dialog-content class="mat-typography">
+        <mat-divider></mat-divider> <br>
+        <div class="row">
+          <mat-checkbox color="primary">
+            <mat-form-field style="width: 300px;" appearance="outline">
+              <mat-label>Sales Invoice</mat-label>
+              <input matInput placeholder=" Thanks for doing business with us !  ">
+            </mat-form-field>
+          </mat-checkbox>
+          <mat-icon class="infoicon mt-4">info</mat-icon>
+        </div>
+        <div class="row">
+          <mat-checkbox color="primary">
+            <mat-form-field style="width: 300px;" appearance="outline">
+              <mat-label> Sales Order </mat-label>
+              <input matInput placeholder=" Thanks for doing business with us !  ">
+            </mat-form-field>
+          </mat-checkbox>
+          <mat-icon class="infoicon mt-4">info</mat-icon>
+        </div>
+        <div class="row">
+          <mat-checkbox color="primary">
+            <mat-form-field style="width: 300px;" appearance="outline">
+              <mat-label> Delivery Challan </mat-label>
+              <input matInput placeholder=" Thanks for doing business with us !  ">
+            </mat-form-field>
+          </mat-checkbox>
+          <mat-icon class="infoicon mt-4">info</mat-icon>
+        </div>
+        <div class="row">
+          <mat-checkbox color="primary">
+            <mat-form-field style="width: 300px;" appearance="outline">
+              <mat-label> Estimate Quotation </mat-label>
+              <input matInput placeholder=" Thanks for doing business with us !  ">
+            </mat-form-field>
+          </mat-checkbox>
+          <mat-icon class="infoicon mt-4">info</mat-icon>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close color="primary"> SAVE AND CLOSE </button>
+      </mat-dialog-actions>
+    </div>
+  </ng-template>
+  <!-- condition dialog box end  -->

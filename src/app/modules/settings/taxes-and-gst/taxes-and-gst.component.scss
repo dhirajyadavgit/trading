@@ -1,0 +1,11 @@
+.scrollbar{
+    margin-top: 15px;
+    max-height: 200px;
+    width: 500px;
+    overflow-y: scroll;
+  }
+
+.scrollbar::-webkit-scrollbar {
+    display: none;
+    
+  }
