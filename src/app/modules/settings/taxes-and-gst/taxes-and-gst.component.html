@@ -1,0 +1,363 @@
+<div class="row">
+    <div class="col-lg-4 pt-1">
+        <h3><b>Item Settings</b></h3>
+        <mat-divider></mat-divider><br>
+        <div class="row">
+            <div class="col-lg-1">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Enable GST
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">info</mat-icon>
+            </div>
+        </div>
+        <!-- Default Unit dialog -->
+        <ng-template #default>
+            <div class="row bg-secondary text-white p-3 m-0 rounded">
+                <div class="col-lg-11 text-white fs-4 mt-1">
+                    Select Default Unit
+                </div>
+                <div class="col-lg-1">
+                    <button mat-dialog-close style="background: none; color: white; border: none !important;">
+                        <mat-icon>highlight_off</mat-icon>
+                    </button>
+                </div>
+            </div><br>
+            
+            <div class="row pt-1">
+                <div class="col-lg-6">
+                    
+                </div>
+                <div class="col-lg-6">
+                    
+                </div>
+            </div>
+            <h2><b>Conversion Rates</b></h2>
+            <div class="row">
+                <div class="col-lg-2">
+                    <h2>Qty.</h2>
+                </div>
+                <div class="col-lg-3">
+                    <h2>Default Unit</h2>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <h2>Qty.</h2>
+                </div>
+                <div class="col-lg-3">
+                    <h2>Def. Secondary Unit</h2>
+                </div>
+            </div>
+            <mat-divider></mat-divider><br>
+            <div class="row">
+                <div class="col-lg-2">
+                    <mat-form-field class="input-width">
+                        <mat-label>Qty.</mat-label>
+                        <input matInput disabled type="number" value="1">                        
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3">
+                    <mat-form-field class="input-width">
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                          <mat-option value="one">Bag</mat-option>
+                          <mat-option value="two">Bundle</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-1"><h1>=</h1></div>
+                <div class="col-lg-2">
+                    <mat-form-field class="input-width">
+                        <mat-label>Qty.</mat-label>
+                        <input matInput type="number" value="1">
+                      </mat-form-field>
+                </div>
+                <div class="col-lg-3">
+                    <mat-form-field class="input-width">
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                          <mat-option value="one">Bag</mat-option>
+                          <mat-option value="two">Bundle</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+            <mat-divider></mat-divider><br>
+            <div class="row">
+                <div class="col-lg-10"></div>
+                <div class="col-lg-2">
+                    <button mat-raised-button mat-dialog-close class="fs-6" color="primary"><b>Save</b></button>
+                </div>
+            </div>
+        </ng-template>
+        <!-- template-end -->
+        <div class="row mt-2">
+            <div class="col-lg-1">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Enable HSN/SAC Code
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">info</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-lg-1">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Additional Cess On Item
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">info</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-lg-1">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Reverse Charge
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">info</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-lg-1">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Enable Place of Supply
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">info</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-lg-1">
+                <mat-checkbox [(ngModel)]="ewayBill"></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Enable E-Way Bill Number
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">info</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2" *ngIf="ewayBill">
+            <div class="col-lg-1">
+                <mat-checkbox ></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Generate E-Way Bill Number
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">info</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-lg-1 pt-3">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-5 pt-3">
+                Composite Scheme
+            </div>
+            <div class="col-lg-4">
+                <mat-form-field class="input-width">
+                    <mat-label>Scheme</mat-label>
+                    <mat-select>
+                      <mat-option value="one">Trader(Goods) 1.0%</mat-option>
+                      <mat-option value="two">Manufacturer 1.0%</mat-option>
+                      <mat-option value="two">Resturant 5.0%</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-1 pt-3">
+                <mat-icon class="icon-info">info</mat-icon>
+            </div>
+        </div>
+        <div class="row p-2">
+            <button mat-button (click)="taxRates()" class="text-primary">
+                Tax List > 
+            </button>
+        </div>
+
+    </div>
+    <div *ngIf="taxRate" class="col-lg-4  ">
+        <div class="row p-0">
+            <div class="col-lg-9">
+                <h2>Taxes Rates</h2>
+            </div>
+            <div class="col-lg-1">
+                <a href="javascript:void(0)" (click)="taxRatesDialog(taxRateDialog)" class="a">
+                    <mat-icon>add_circle_outline</mat-icon>
+                </a>
+            </div>
+        </div>
+        <mat-divider></mat-divider><br>
+    </div>
+
+    <!-- Tax Rates dialog Start -->
+    <ng-template #taxRateDialog>
+        <div class="row bg-primary pt-2 mb-2 rounded text-white">
+            <div class="col-lg-10 pt-1">
+                <h2>Add Tax Rate</h2>
+            </div>
+            <div class="col-lg-1 pt-2">
+                <mat-icon mat-dialog-close>highlight_off</mat-icon>
+            </div>
+        </div>
+        <div class="row">
+            <mat-form-field class="input-width">
+                <input matInput placeholder="Tax Name">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <mat-form-field class="input-width">
+                    <input matInput placeholder="Enter Rate">
+                </mat-form-field>
+            </div>
+            <div class="col-lg-4">
+                <mat-form-field class="input-width">
+                    <mat-label>Select</mat-label>
+                    <mat-select>
+                      <mat-option value="one">Bag</mat-option>
+                      <mat-option value="two">Bundle</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 mr-3">
+                <button mat-raised-button mat-dialog-close class="btn-success">Save</button>
+            </div>
+            <div class="col-lg-2">
+                <button mat-raised-button mat-dialog-close class="btn-danger">Cancel</button>
+            </div>
+        </div>
+    </ng-template>
+    <!-- template-end -->
+
+    <div *ngIf="taxRate" class="col-lg-4  ">
+        <div class="row p-0">
+            <div class="col-lg-9">
+                <h2>Tax Groups</h2>
+            </div>
+            <div class="col-lg-1">
+                <a href="javascript:void(0)" (click)="taxGroups(taxGroup)" class="a">
+                    <mat-icon>add_circle_outline</mat-icon>
+                </a>
+            </div>
+        </div>
+        <mat-divider></mat-divider><br>
+    </div>
+    <!-- Tax Group dialog -->
+    <ng-template #taxGroup>
+        <div class="row bg-primary text-white pt-2 rounded">
+            <div class="col-lg-11 pt-1">
+                <h3>Add tax Group</h3>
+            </div>
+            <div class="col-lg-1 pt-1">
+                <mat-icon mat-dialog-close>highlight_off</mat-icon>
+            </div>
+        </div><br>
+        <div class="row">
+            <mat-form-field style="width: 500px;">
+                <mat-label>Add Tax Group</mat-label>
+                <input matInput placeholder="Tax Group Name" value="">
+              </mat-form-field>
+        </div>
+        <div class="row">
+            <h3>Select Checks :<mat-divider></mat-divider></h3>
+        </div>
+        <div class="row scrollbar">
+            <div class="row">
+                <div class="col-lg-7">
+                    IGST@0%
+                </div>
+                <div class="col-lg-4" align="end">
+                    0%
+                </div>
+                <div class="col-lg-1">
+                    <mat-checkbox></mat-checkbox>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-7">
+                    IGST@0%
+                </div>
+                <div class="col-lg-4" align="end">
+                    0%
+                </div>
+                <div class="col-lg-1">
+                    <mat-checkbox></mat-checkbox>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-7">
+                    IGST@0%
+                </div>
+                <div class="col-lg-4" align="end">
+                    0%
+                </div>
+                <div class="col-lg-1">
+                    <mat-checkbox></mat-checkbox>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-7">
+                    IGST@0%
+                </div>
+                <div class="col-lg-4" align="end">
+                    0%
+                </div>
+                <div class="col-lg-1">
+                    <mat-checkbox></mat-checkbox>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-7">
+                    IGST@0%
+                </div>
+                <div class="col-lg-4" align="end">
+                    0%
+                </div>
+                <div class="col-lg-1">
+                    <mat-checkbox></mat-checkbox>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-7">
+                    IGST@0%
+                </div>
+                <div class="col-lg-4" align="end">
+                    0%
+                </div>
+                <div class="col-lg-1">
+                    <mat-checkbox></mat-checkbox>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-7">
+                    IGST@0%
+                </div>
+                <div class="col-lg-4" align="end">
+                    0%
+                </div>
+                <div class="col-lg-1">
+                    <mat-checkbox></mat-checkbox>
+                </div>
+            </div>
+        </div><br>
+        <div class="row">
+            <button mat-raised-button color="primary">Save</button>
+        </div>
+        
+    </ng-template>
+    <!-- template-end -->
+</div>

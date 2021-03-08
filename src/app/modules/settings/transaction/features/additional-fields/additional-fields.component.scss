@@ -1,0 +1,37 @@
+.width{
+    width: 100%;
+}
+.conIcon{
+    position: relative;
+    top: 5px;
+    font-size: 16px;
+}
+.example-viewport {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+  }
+  
+  .mat-dialog-container{position: relative;
+    right: 299px;
+}
+.dialogHeading{
+    text-align: center;
+    height: 33px;
+    margin-bottom: 30px;
+    border-radius:4px ;
+    width: 100%;
+  }
+
+  
+  .SFO{
+    margin-top: 15px;
+    height: auto;
+    max-height: 200px;
+    width: 100%;
+    overflow-y: scroll;
+  }
+  .SFO::-webkit-scrollbar {
+    display: none;
+    
+  }

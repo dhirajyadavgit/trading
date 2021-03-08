@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html, body {
+    height: 100%;
+ }
+body {
+     margin: 0;
+     font-family: Roboto, "Helvetica Neue", sans-serif; 
+    }
+.red{background-color: lightsalmon;}
+.green{background-color: lightgreen;}
+.blue{background-color: lightskyblue;}
+.orange{background-color: orange;}
+.pink{background-color: pink;}
+.icon-info{
+    color: lightgray;
+    font-size: 20px;
+    cursor: pointer;
+}
+.input-width{
+    width: 100%;
+}
+.backup{
+    width: 50px;
+  }
+  mat-divider{
+      background-color: gray;
+  }
+  .infoicon {
+    color: lightgray;
+    font-size: 15px;
+}
+  .border{
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-width: 2px !important;
+    padding: 20px;
+    margin: 5px;
+}
+.a{
+    text-decoration: none;
+}
+tr.border-bottom td {
+    border-bottom: 1pt dotted black;
+  }
+.noscroll::-webkit-scrollbar {
+    display: none;
+    }
+    .dialoghead{
+        background-color: royalblue;  
+        border-radius: 5px; 
+        color: white; 
+        padding: 5px;   
+   }
+   .size{
+       height: auto; 
+       max-height: 800px;
+        overflow-y : scroll;
+   }
+   .bdr{
+       border: 1pt solid black;
+   }
+   .pd5{
+       padding: 5px;
+   }
+   .bdrbtm{
+       border-bottom: 1pt solid black;
+   }
+   
+   // styles for thermal printer 
+   .wdh80pdl10{
+       width: 80%;;
+       padding-left: 10px;
+   }
+footer{
+    background-color: lightgray;
+    padding: 5px;
+}
