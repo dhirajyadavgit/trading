@@ -1,0 +1,40 @@
+<div class="container" fxFlexAlign="center" style="width: 500px;">
+    <h1 mat-dialog-title>Set Payment Term</h1>
+    <div class="example-button-container">
+        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+<form >
+    <div class="row" *ngFor="let obj of datarray">
+        <div class="col-md-4">
+        <mat-form-field appearance="outline" >
+            <input matInput class="form-control" name="Term" [(ngModel)]="s.Term">
+        </mat-form-field>
+        </div>
+        <div class="col-md-3">
+        <mat-form-field appearance="outline" >
+            <input matInput class="form-control" name="Days" [(ngModel)]="s.Days">
+        </mat-form-field>
+        </div>
+        <div class="col-md-2">
+        <mat-form-field appearance="fill" >
+            <mat-checkbox></mat-checkbox>
+        </mat-form-field>
+        </div>
+
+        <div class="col-md-1">
+        <mat-form-field appearance="fill" >
+            <mat-icon >edit</mat-icon>
+        </mat-form-field>
+        </div>
+        <div class="col-md-1">
+        <mat-form-field appearance="fill" >
+            <mat-icon >delete</mat-icon>
+        </mat-form-field>
+        </div>
+    </div> 
+    <button (click)="addForm()"></button>
+    
+</form>
+</div>

@@ -1,0 +1,61 @@
+<h3 class="dialoghead" mat-dialog-title >Change Transaction Names </h3>
+<div class="row">
+<div class="col-md-6">
+    <div><mat-form-field appearance="outline">
+      <mat-label>Sales</mat-label>
+      <input matInput placeholder=" Tax Invoice ">
+    </mat-form-field></div>
+    <div><mat-checkbox color="primary">Bill of supply for non Transaction</mat-checkbox></div> 
+    <div><mat-form-field appearance="outline">
+      <mat-label>Payment In</mat-label>
+      <input matInput placeholder=" Payment Receipt">
+    </mat-form-field></div>
+    <div><mat-form-field appearance="outline">
+      <mat-label>Expance</mat-label>
+      <input matInput placeholder=" Expance ">
+    </mat-form-field></div>
+    <div><mat-form-field appearance="outline">
+      <mat-label>Sales Order</mat-label>
+      <input matInput placeholder=" Sales Order ">
+    </mat-form-field></div>
+    <div><mat-form-field appearance="outline">
+      <mat-label>Estimate</mat-label>
+      <input matInput placeholder=" Estimate ">
+    </mat-form-field></div>
+    <div><mat-form-field appearance="outline">
+      <mat-label>Credit Note</mat-label>
+      <input matInput placeholder=" Credit Note ">
+    </mat-form-field></div>
+</div>
+<div class="col-md-6">
+    <div><mat-form-field appearance="outline">
+      <mat-label>Purchase</mat-label>
+      <input matInput placeholder=" Bill ">
+    </mat-form-field></div>
+    <div>.</div>
+    <div><mat-form-field appearance="outline">
+            <mat-label>Payment Out</mat-label>
+            <input matInput placeholder=" Payment Out">
+          </mat-form-field></div>
+    <div><mat-form-field appearance="outline">
+      <mat-label>Other Income</mat-label>
+      <input matInput placeholder=" Other Income ">
+    </mat-form-field></div>
+    <div><mat-form-field appearance="outline">
+      <mat-label>Purchase Order</mat-label>
+      <input matInput placeholder=" Purchase Order ">
+    </mat-form-field></div>
+    <div><mat-form-field appearance="outline">
+      <mat-label>Delivery Challan</mat-label>
+      <input matInput placeholder="Delivery Challan ">
+    </mat-form-field></div>
+    <div><mat-form-field appearance="outline">
+      <mat-label>Purchase Note</mat-label>
+      <input matInput placeholder="Debit Note ">
+    </mat-form-field></div>
+</div>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close color="primary">Cancel</button>
+  <button mat-button [mat-dialog-close]="true" color="primary">save</button>
+</mat-dialog-actions>

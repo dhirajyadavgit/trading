@@ -1,0 +1,110 @@
+<div class="row">
+    <div class="col-lg-11 fs-5 text-primary pt-2 ">Add Firm</div>
+    <div class="col-lg-1  float-end">
+        <button (click)="onNoClick()" class="pt-2" style="border-radius: 50%; border: none !important;">
+            <mat-icon>clear</mat-icon>
+        </button>
+    </div>
+</div>
+
+<div class="row container rounded ">
+    <div class="col-lg-6 rounded ">
+        <button id="addphoto" class="rounded m-5">
+            <div class="col-lg-12 img ">
+                <h3>Add Photo</h3>
+                <mat-icon>add</mat-icon>
+            </div>
+        </button>
+        <!-- <button (click)="toggleShow()" type="checkbox"  mat-button class="more rounded">
+            
+        </button> -->
+    </div>
+    <div class="col-lg-6 rounded p-2">
+        <mat-form-field class="example-full-width" >
+            <mat-label>Business Name</mat-label>
+            <input type="text" matInput placeholder="Business Name" required>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Business Description</mat-label>
+            <input type="text" #description matInput placeholder="Business Description" required>
+            <mat-hint align="end">{{description.value.length}} / 256</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Phone No.</mat-label>
+            <input type="number" matInput placeholder="Confirm Passcode" required>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Email ID</mat-label>
+            <input type="email" matInput placeholder="Confirm Passcode" required>
+        </mat-form-field>
+    </div>
+</div><br>
+
+
+    <div class="row">
+        <div class="col-lg-1">
+            <h2><mat-checkbox (click)="toggleShow()" ></mat-checkbox></h2>
+        </div>
+        <div class="col-lg-6 text-primary">
+            <h2>Business information</h2>
+        </div>
+    </div> 
+
+
+
+
+<mat-divider></mat-divider><br>
+<div class="row" *ngIf="isShown">
+    <div class="col-md-6">
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Address</mat-label>
+            <textarea matInput #address placeholder="Ex. Pune 411018, Maharastra"></textarea>
+            <mat-hint align="end">{{address.value.length}} / 250</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Select State</mat-label>
+            <mat-select>
+                <mat-option value="">None</mat-option>
+                <mat-option value="">Assam</mat-option>
+                <mat-option value="">Bihar</mat-option>
+                <mat-option value="">Chandigarh</mat-option>
+                <mat-option value="">Delhi</mat-option>
+                <mat-option value="">Gova</mat-option>
+                <mat-option value="">Haryan</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-md-6">
+        <mat-form-field appearance="outline">
+            <mat-label>Business Type</mat-label>
+            <mat-select>
+                <mat-option value="">None</mat-option>
+                <mat-option value="">Retail</mat-option>
+                <mat-option value="">Whole Sale</mat-option>
+                <mat-option value="">Distributer</mat-option>
+                <mat-option value="">Service</mat-option>
+                <mat-option value="">Others</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Business category</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <button class="rounded" id="addsignature">
+            <div class="col-lg-12">
+                <h3>Add Photo</h3>
+                <mat-icon>add</mat-icon>
+            </div>
+        </button>
+    </div>
+</div>
+<div class="row mt-2">
+    <button mat-raised-button color="primary">Save</button>
+</div>
+
+
+
+
+
+
+

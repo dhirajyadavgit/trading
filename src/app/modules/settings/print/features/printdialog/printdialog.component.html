@@ -1,0 +1,9 @@
+<div class="dialoghead"><h3 mat-dialog-title>Change Default Printer</h3></div>
+<mat-dialog-content class="mat-typography">
+  <p>Removing Regular Printer from Default will make Thermal Printer as your prefered PRinter.</p><br>
+  <p>Vyapar will print invoices from your Thermal Printer. Do you want to Continue ?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" >Done</button>
+</mat-dialog-actions>

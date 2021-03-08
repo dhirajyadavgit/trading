@@ -1,0 +1,356 @@
+<div class="row">
+    <div class="col-lg-4 border">
+        <h3><b>Item Settings</b></h3>
+        <mat-divider></mat-divider><br>
+        <div class="row">
+            <div class="col-lg-1">
+                <mat-checkbox [checked]="isChecked" (change)="show()"></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Enable Item
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">information</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2" *ngIf="isChecked">
+            <div class="col-lg-7 pt-3">
+                <h3>What do you sell?</h3>
+            </div>
+            <div class="col-lg-3">
+                <mat-form-field  class="input-width">
+                    <mat-label>Type</mat-label>
+                    <mat-select >
+                        <mat-option value="Product">Product</mat-option>
+                        <mat-option value="Service">Service</mat-option>
+                        <mat-option value="Product/Service">Product/Service</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-1 pt-4">
+                <mat-icon class="icon-info">info</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2" checked="barCode" *ngIf="isChecked">
+            <div class="col-lg-1">
+                <mat-checkbox (change)="barcode()"></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Barcode Scan
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">information</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2" *ngIf="isChecked && barCode">
+            <div class="col-lg-1">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Direct Barcode Scan
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">information</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2" *ngIf="isChecked">
+            <div class="col-lg-1">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Stock Maintenance
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">information</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2" *ngIf="isChecked">
+            <div class="col-lg-1">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Show Low Stock Dialog
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">information</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2" *ngIf="isChecked">
+            <div class="col-lg-1">
+                <mat-checkbox [checked]="items" (change)="itemsUnit()"></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Items Unit
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">information</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2" *ngIf="isChecked && items">
+            <div class="col-lg-1">
+                <mat-checkbox [checked]="defaultItems" (change)="defaultUnit()"></mat-checkbox>
+            </div>
+            <div class="col-lg-5">
+                Default Unit
+            </div>
+            <div class="col-lg-4 p-0" >
+                <a *ngIf="defaultItems" (click)="defaultUnitDialog(default)" class="a" href="javascript:void(0)" >Add Default Unit</a>
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">information</mat-icon>
+            </div>
+        </div>
+
+        <!-- Default Unit dialog -->
+        <ng-template #default>
+            <div class="row bg-secondary text-white p-3 m-0 rounded">
+                <div class="col-lg-11 text-white fs-4 mt-1">
+                    Select Default Unit
+                </div>
+                <div class="col-lg-1">
+                    <mat-icon mat-dialog-close>highlight_off</mat-icon>
+                </div>
+            </div><br>
+            
+            <h2><b>Conversion Rates</b></h2>
+            <div class="row">
+                <div class="col-lg-2">
+                    <h2>Qty.</h2>
+                </div>
+                <div class="col-lg-3">
+                    <h2>Default Unit</h2>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2">
+                    <h2>Qty.</h2>
+                </div>
+                <div class="col-lg-3">
+                    <h2>Def. Secondary Unit</h2>
+                </div>
+            </div>
+            <mat-divider></mat-divider><br>
+            <div class="row">
+                <div class="col-lg-2">
+                    <mat-form-field class="input-width">
+                        <mat-label>Qty.</mat-label>
+                        <input matInput disabled type="number" value="1">                        
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-3">
+                    <mat-form-field class="input-width">
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                          <mat-option value="one">Bag</mat-option>
+                          <mat-option value="two">Bundle</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-1"><h1>=</h1></div>
+                <div class="col-lg-2">
+                    <mat-form-field class="input-width">
+                        <mat-label>Qty.</mat-label>
+                        <input matInput type="number" value="1">
+                      </mat-form-field>
+                </div>
+                <div class="col-lg-3">
+                    <mat-form-field class="input-width">
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                          <mat-option value="one">Bag</mat-option>
+                          <mat-option value="two">Bundle</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+            <mat-divider></mat-divider><br>
+            <div class="row">
+                <div class="col-lg-10"></div>
+                <div class="col-lg-2">
+                    <button mat-raised-button mat-dialog-close class="fs-6" color="primary"><b>Save</b></button>
+                </div>
+            </div>
+        </ng-template>
+        <!-- template-end -->
+
+        <div class="row mt-2" *ngIf="isChecked">
+            <div class="col-lg-1">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Item Categories
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">information</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2" *ngIf="isChecked">
+            <div class="col-lg-1">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Partywise Item Rate
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">information</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2" *ngIf="isChecked">
+            <div class="col-lg-1">
+                <mat-checkbox (change)="descEnable()"></mat-checkbox>
+            </div>
+            <div class="col-lg-5">
+                Description
+            </div>
+            <div class="col-lg-4" align="end" >
+                <a *ngIf="description" class="a" href="javascript:void(0)" >Change Text</a>
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">information</mat-icon>
+            </div>
+        </div>
+        
+        <div class="row mt-2" *ngIf="isChecked">
+            <div class="col-lg-1">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Item wise Tax
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">information</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2" *ngIf="isChecked">
+            <div class="col-lg-1">
+                <mat-checkbox></mat-checkbox>
+            </div>
+            <div class="col-lg-9">
+                Item wise Discount
+            </div>
+            <div class="col-lg-1">
+                <mat-icon class="icon-info">information</mat-icon>
+            </div>
+        </div>
+        <div class="row mt-2" *ngIf="isChecked">
+            <div class="col-lg-8 pt-3">
+                Quantity <h5>(UpTo decimal places)</h5>
+            </div>
+            
+            <div class="col-lg-2">
+                <mat-form-field class="backup">
+                    <input matInput value="1" type="number">
+                </mat-form-field>
+            </div>
+            
+            <div class="col-lg-1 pt-3">
+                <mat-icon class="icon-info">info</mat-icon>
+            </div>
+        </div>
+    </div>
+    <!-- Second Column -->
+    <div class="col-lg-4 border" *ngIf="isChecked">
+        <h3><b>Additional item columns <span style="font-size: 11px;">(batch tracking)</span></b></h3>
+        
+        <mat-divider></mat-divider><br>
+
+        <div class="row">
+            <div class="col-lg-1 pt-3">
+                <mat-checkbox [(ngModel)]="mrp"></mat-checkbox>
+            </div>
+            <div class="col-lg-7 pt-3">
+                MRP/Price
+            </div>
+            <div class="col-lg-4">
+                <mat-form-field class="input-width">
+                    <input matInput [disabled]="!mrp" value="MRP/">
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 pt-3">
+                <mat-checkbox [(ngModel)]="batch"></mat-checkbox>
+            </div>
+            <div class="col-lg-7 pt-3">
+                Batch No.
+            </div>
+            <div class="col-lg-4">
+                <mat-form-field class="input-width">
+                    <input matInput [disabled]="!batch" value="Batch No.">
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 pt-3">
+                <mat-checkbox [(ngModel)]="expDate"></mat-checkbox>
+            </div>
+            <div class="col-lg-4 pt-3">
+                Exp Date
+            </div>
+            <div class="col-lg-4 p-0">
+                <mat-form-field  class="input-width">
+                    <mat-label>format</mat-label>
+                    <mat-select  [disabled]="!expDate">
+                        <mat-option value="">dd/mm/yy</mat-option>
+                        <mat-option value="">mm/yy</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3">
+                <mat-form-field class="input-width">
+                    <input matInput [disabled]="!expDate" value="Exp. Date">
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 pt-3">
+                <mat-checkbox [(ngModel)]="mfgDate"></mat-checkbox>
+            </div>
+            <div class="col-lg-4 pt-3">
+                Mfg Date
+            </div>
+            <div class="col-lg-4 p-0">
+                <mat-form-field  class="input-width">
+                    <mat-label>format</mat-label>
+                    <mat-select  [disabled]="!mfgDate">
+                        <mat-option value="">dd/mm/yy</mat-option>
+                        <mat-option value="">mm/yy</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3">
+                <mat-form-field class="input-width">
+                    <input matInput [disabled]="!mfgDate" value="Mfg. Date">
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 pt-3">
+                <mat-checkbox [(ngModel)]="serialNo"></mat-checkbox>
+            </div>
+            <div class="col-lg-7 pt-3">
+                Serial No./ IMEI
+            </div>
+            <div class="col-lg-4">
+                <mat-form-field class="input-width">
+                    <input matInput [disabled]="!serialNo" value="Serial No.">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 pt-3">
+                <mat-checkbox [(ngModel)]="size"></mat-checkbox>
+            </div>
+            <div class="col-lg-7 pt-3">
+                Size
+            </div>
+            <div class="col-lg-4">
+                <mat-form-field class="input-width">
+                    <input matInput [disabled]="!size" value="Size">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        
+    </div>
+</div>
